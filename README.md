@@ -23,7 +23,7 @@ How to analyse your facebook friends (I AM USING GOOGLE CHROME).
 
 
 With MacOS
- ・Use Terminal and go to the downloaded directory (using cd Desktop etc..).
- ・In the directory named 'FacebookFriendsAnalyser-master', type "python3 FacebookFriendsAnalyser.py".
- ・Then type the name of the file which you pasted the source code after 'Type the name of the file:'.
- ・Then the outcome shows up.
+  1. Use Terminal and go to the downloaded directory (using cd Desktop etc..).
+  2. In the directory named 'FacebookFriendsAnalyser-master', type "python3 FacebookFriendsAnalyser.py".
+  3. Then type the name of the file which you pasted the source code after 'Type the name of the file:'.    
+  4. Then the outcome shows up.
