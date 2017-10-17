@@ -251,14 +251,12 @@ def graphics(infolist):
     win.close()
     
 def main():
-    filename = input('Type the name of the file:')
+    filename = input('Type the name of a file: ')
     infolist = makeList(filename)
-    """[['Hiroshi Arai', '506 friends'], ['Yuuki Kanawa', '878 friends'], ['Risa  Ito', '871 friends'], ['Karen Newton', '165 friends'], ['Yuta Naito', '817 friends'], ['Mai Shimizu', '613 friends'], ['Susie Taylor', '360 friends'], ['Hidefumi Arii', '124 friends'], ['Yasuo Matsuyama', '543 friends'], ['Mitsuki Sakuma', '545 friends'], ['Juncai Liu', '111 friends'], ['Marina Sasano', '707 friends']...]"""
 
     graphics(infolist)
     
     simpleInfoList = editList(infolist)
-    """[['Jiaxin Zhoo', 51], ['Dong Gyu Yang', 291], ['Yusuke Makino', 174], ['Youngwoo Lee', 520], ['Andy Mackenzie', 621], ['Cynthia Chhoa Jia Wen', 433],...]"""
 
 main()
 
