@@ -24,18 +24,13 @@ def extract_div(number,text):
             str = str[ediv+6:]
         if index == 0:
             return ans
-#extract_div(44,"<div>a<div>bc123456789</div>efg<div>hijklmno<div>p</div>qrs</div></div>")
 
 def before_blacket(number,text):
     text = text[:number][::-1]
     text = text[:text.find('>')]
     text = text[::-1]
     return text
-##before_blacket("akn>That's right!</a>".find("</a>"),"akn>That's right!</a>") -> That's right!
 
-##Split <div class="_5h60 _30f" id="pagelet_timeline ...></div> into
-##<ul class="uiList _262m _4kg" data-pnref="friends"> so that to make
-##collections of <li class="_698"> ... </li>
 def mk_li_list(friends_div):
     friends_div = friends_div.replace('<ul class="uiList _262m _4kg" data-pnref="friends">','@')
     friends_div = friends_div.replace('</ul><ul class="uiList _262m expandedList _4kg" data-pnref="friends">','@')
@@ -97,7 +92,6 @@ def topFriendsRank(infolist):
     num = len(whole)
     mid = whole[round(len(whole)/2)][1]
     avrg = round(sum / num, 2)
-    ##print(ans,avrg,mid,num)
     return ans,avrg,mid,num
 
 def is_japanese(string):
@@ -116,7 +110,6 @@ def topNameLengthRank(infolist,num):
             whole.append([infolist[i][0], len(infolist[i][0].replace(' ','').replace('-','').replace("'",""))])
             sum = sum + len(infolist[i][0].replace(' ',''))
     whole.sort(key=lambda x: x[1], reverse=True)
-    #print(whole)
     for i in range(TOP_NAME_LENGTH_RANK):
         if num == 2:
             ans = ans + whole[len(whole) - 1 - i][0] + '\t' + str(whole[len(whole) -1 - i][1]) + '\n'
@@ -125,7 +118,6 @@ def topNameLengthRank(infolist,num):
     num = len(whole)
     mid = whole[round(len(whole)/2)][1]
     avrg = round(sum / num, 2)
-    #print(ans,avrg,mid,num)
     return ans,avrg,mid,num
 
 def mostCommon(infolist):
@@ -147,7 +139,6 @@ def mostCommon(infolist):
     for i in range(TOP_NAME_RANK):
         ansFirst = ansFirst + dictFirst[i][0] + '\t' + str(dictFirst[i][1]) + '\n'
         ansLast = ansLast + dictLast[i][0] + '\t' + str(dictLast[i][1]) + '\n'
-    #print(ansFirst,ansLast)
     return ansFirst,ansLast
 
 def editList(infolist):
@@ -158,7 +149,6 @@ def editList(infolist):
             b = int(a)
             numbers.append(b)
     numbers.sort()
-##    #print(numbers)
     return numbers
 
 def editstr(noFri_str):
@@ -187,8 +177,8 @@ def graphics(infolist):
     numbers = editList(infolist)
 
     message = 'Your sourcecode is successfully analysed and  \"'+str(len(infolist))+'\"  friends\' information are extracted.\n'
-    message = message + '\"' + str(len(infolist) - len(numbers)) + ' friends\" hide the information of their friends.\n'
-    message = message + '\"' + str(len(infolist) - nameLen1_num) + ' friends\" don\'t register their name in alphabet. ' + strftime("%Y/%m/%d",gmtime()) + '\n'
+    message = message + '\"' + str(len(infolist) - len(numbers)) + ' friends\" hide their information of their friends.\n'
+    message = message + '\"' + str(len(infolist) - nameLen1_num) + ' friends\" don\'t register their name by alphabet. ' + strftime("%Y/%m/%d",gmtime()) + '\n'
     mainm = Text(Point(390, 50), message)
     mainm.setTextColor("green")
     mainm.draw(win)
@@ -227,7 +217,7 @@ def graphics(infolist):
     Text(Point(ELE5_X, ELE5_Y), nametext5).draw(win)
     Text(Point(ELE5_X + 80, ELE5_Y), numtext5).draw(win)
 
-    Text(Point(ELE1_X + 50, ELE1_Y - 130),'The number of friends TOP10\n').draw(win)
+    Text(Point(ELE1_X + 50, ELE1_Y - 130),'Number of friends TOP10\n').draw(win)
     Text(Point(ELE2_X + 40, ELE2_Y - 130),'Longest names TOP10\n').draw(win)
     Text(Point(ELE3_X + 40, ELE3_Y - 130),'Shortest names TOP10\n').draw(win)
     Text(Point(ELE4_X + 50, ELE4_Y - 120),'Most common First name TOP10\n').draw(win)
